@@ -6,3 +6,4 @@
 2. CSS  
 3. JAVASCRIPT(VanillaJS)  
 --------------------
+made by NomadCoder & ME
