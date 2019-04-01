@@ -3,3 +3,10 @@ h1{
     background: #919191;
     color:#ffffff;
 }
+.form,
+.greetings{
+    display: none;
+}
+.showing{
+    display: block;
+}
