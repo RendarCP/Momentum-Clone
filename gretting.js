@@ -34,7 +34,7 @@ function  loadName(){
         askForName();
     } else{
         //유저가 있을경우
-        paintGreeting(currentUser);
+        paintGreeting(currentUser); //유저이름을 보여줌
     }
 }
 
