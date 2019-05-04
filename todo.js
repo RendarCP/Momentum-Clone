@@ -1,10 +1,25 @@
 const todoForm = document.querySelector(".js-toDoForm"),
     toDoInput = todoForm.querySelector("input"),
-    toDoList = document.querySelector(".js-toDoList");
+    toDoList = document.querySelector(".js-toDoList"),
+    todoDiv = document.querySelector(".wrapper"),
+    toDoAllDelete = todoDiv.querySelector("button");
 
 const TODOS_LS = 'toDos';
 
 let toDos = [];
+
+function allDeleteTodo(event){
+    if(localStorage.getItem('toDos') !== null){ // 목록이있을때만 다 지우도록 기능함
+        localStorage.removeItem('toDos');
+        location.reload();
+    }
+    else{
+        alert("목록에 아무것도 없습니다");
+    }
+    const deleteBtn = event.target;
+  //  localStorage.removeItem('toDos');
+  //  location.reload();
+}
 
 function deleteToDo(event){
     const btn = event.target; //evnet의 타깃을 잡음
@@ -26,11 +41,13 @@ function paintToDo(text){ //Todollist를 보여주게함
     const delBtn = document.createElement("button");
     const span = document.createElement("span");
     const newId = toDos.length + 1; //초기값을 1로만들기위해서 
+    delBtn.classList.add("listDelete");
     delBtn.innerText = "삭제";
     delBtn.addEventListener("click",deleteToDo);
     span.innerText = text;
-    li.appendChild(delBtn); //appendChild -> 부모노드에 붙힘 
+    //li.appendChild(delBtn); //appendChild -> 부모노드에 붙힘 
     li.appendChild(span);
+    li.appendChild(delBtn);
     li.id = newId;
     toDoList.appendChild(li);
     const toDoObj = {
@@ -44,8 +61,13 @@ function paintToDo(text){ //Todollist를 보여주게함
 function handleSubmit(event){ // 엔터칠시 발생하는 이벤트
     event.preventDefault();
     const currentValue = toDoInput.value;
-    paintToDo(currentValue);
-    toDoInput.value = "";
+    if(currentValue ===""){ //할일은 적을때만 가능하도록 
+        alert("할 일을 적어주세요");
+    }
+    else{
+        paintToDo(currentValue);
+        toDoInput.value = "";
+    }
 }
 
 function loadToDos(){
@@ -64,6 +86,7 @@ function loadToDos(){
 function init(){
     loadToDos();
     todoForm.addEventListener("submit",handleSubmit);
+    toDoAllDelete.addEventListener("click",allDeleteTodo);
 }
 
 init();

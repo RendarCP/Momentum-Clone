@@ -24,7 +24,7 @@ function handleSubmit(event){ //이벤트
 function paintGreeting(text){ //폼을 없애고 사용자 이름을 h4태그에 담음
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hello ${text}`
+    greeting.innerText = `Hello ${text} !`
 }
 
 function  loadName(){
