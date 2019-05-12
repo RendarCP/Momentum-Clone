@@ -11,7 +11,8 @@ let toDos = [];
 function allDeleteTodo(event){
     if(localStorage.getItem('toDos') !== null){ // 목록이있을때만 다 지우도록 기능함
         localStorage.removeItem('toDos');
-        location.reload();
+        toDoList.innerHTML = "";
+        //location.reload();
     }
     else{
         alert("목록에 아무것도 없습니다");

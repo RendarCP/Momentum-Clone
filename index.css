@@ -1,14 +1,18 @@
 h1{ /*시계*/
     text-align: center;
-    background: #919191;
-    color:#ffffff;
+    background-color:transparent ;
+    color:#74b9ff;
     font-size: 50px;
     margin-top: 15%;
     font-family: 'Fredoka One', cursive;
 }
 span{ /*리스트*/
-    font-size: 20px;
+    font-size: 35px;
     font-family: 'Black Han Sans', sans-serif;
+}
+body{ /*배경 랜덤으로 바뀌는것 지정*/
+    background-image: url("https://source.unsplash.com/random");
+    background-size: cover;
 }
 .form,
 .greetings{
@@ -24,6 +28,7 @@ h4{ /*이름표시*/
     text-align: center;
     font-family: 'Jua', sans-serif;
     font-size: 30px;
+    color:#00b894;
 }
 ul{ /*목록 가운데로*/
     text-align: center;
@@ -37,8 +42,13 @@ input[type=text]{ /*할일 및 이름 css*/
     width:50%;
     height:50px;
     border:none;
-    border-bottom:2px solid black;
+    border-bottom:2px solid #dfe6e9;
     font-size:30px;
+    background-color:transparent;
+}
+input::placeholder{ /*할 일을 적으세요 CSS */
+    color:#e17055;
+    opacity: 0.5;
 }
 .js-toDoDelete{ /*all delete css*/
     background-color: #c0392b;
